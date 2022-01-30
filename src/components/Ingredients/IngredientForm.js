@@ -25,6 +25,7 @@ const IngredientForm = React.memo((props) => {
           </div>
           <div className="form-control">
             <label htmlFor="amount">Amount</label>
+
             <input
               type="number"
               id="amount"
