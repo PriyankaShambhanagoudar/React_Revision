@@ -4,7 +4,11 @@ import Card from "../UI/Card";
 import "./IngredientForm.css";
 
 const IngredientForm = React.memo((props) => {
-  const inputState = useState({ title: "", amount: "" });
+
+  //const inputState = useState({ title: "", amount: "" });//old way 
+  const [inputState, setInputState] = useState({ title: "", amount: "" });//new way modern js 
+
+
   const submitHandler = (event) => {
     event.preventDefault();
     // ...
@@ -19,10 +23,12 @@ const IngredientForm = React.memo((props) => {
             <input
               type="text"
               id="title"
-              value={inputState[0].title}
+              // value={inputState[0].title}//old way
+              value={inputState.title}//new way modern js 
               onChange={(event) => {
                 const newTitle = event.target.value;
-                inputState[1]((prevInputState) => ({
+                //  inputState[1]((prevInputState) => ({   //old way
+                setInputState((prevInputState) => ({ //new way modern js 
                   title: newTitle,
                   amount: prevInputState.amount,
                 }));
@@ -35,10 +41,12 @@ const IngredientForm = React.memo((props) => {
             <input
               type="number"
               id="amount"
-              value={inputState[0].amount}
+              //   value={inputState[0].amount}//old way
+              value={inputState.amount}//new way modern js 
               onChange={(event) => {
                 const newAmount = event.target.value;
-                inputState[1](prevInputState => ({
+                // inputState[1](prevInputState => ({//old way
+                setInputState(prevInputState => ({//new way modern js 
                   amount: newAmount,
                   title: prevInputState.title,
                 }));
