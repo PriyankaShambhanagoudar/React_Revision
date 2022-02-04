@@ -5,6 +5,7 @@ import "./IngredientForm.css";
 
 const IngredientForm = React.memo((props) => {
 
+
   //const inputState = useState({ title: "", amount: "" });//old way 
   // const [inputState, setInputState] = useState({ title: "", amount: "" });//new way modern js single state
 
@@ -19,6 +20,7 @@ const IngredientForm = React.memo((props) => {
     event.preventDefault();
     props.onAddIngredient({ title: enteredTitle, amount: enteredAmount });
   };
+
 
   return (
     <section className="ingredient-form">
